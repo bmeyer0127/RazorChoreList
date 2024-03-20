@@ -24,9 +24,16 @@
                 <span asp-validation-for="Chore.ChoreDoer" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Chore.CompletionStatus" class="control-label"></label>
+                @* <label asp-for="Chore.CompletionStatus" class="control-label"></label>
                 <input asp-for="Chore.CompletionStatus" class="form-control" />
-                <span asp-validation-for="Chore.CompletionStatus" class="text-danger"></span>
+                <span asp-validation-for="Chore.CompletionStatus" class="text-danger"></span> *@
+                <label asp-for="Chore.CompletionStatus" class="control-label"></label>
+                <div>
+                    <input type="radio" id="completed" name="completionStatus" value="no" checked />
+                    <label for="completed">Nope</label>
+                    <input type="radio" id="not-completed" name="completionStatus" value="yes"/>
+                    <label for="completed">Yes</label>
+                </div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
