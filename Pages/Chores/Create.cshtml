@@ -24,15 +24,12 @@
                 <span asp-validation-for="Chore.ChoreDoer" class="text-danger"></span>
             </div>
             <div class="form-group">
-                @* <label asp-for="Chore.CompletionStatus" class="control-label"></label>
-                <input asp-for="Chore.CompletionStatus" class="form-control" />
-                <span asp-validation-for="Chore.CompletionStatus" class="text-danger"></span> *@
                 <label asp-for="Chore.CompletionStatus" class="control-label"></label>
                 <div>
-                    <input type="radio" id="completed" name="completionStatus" value="no" checked />
-                    <label for="completed">Nope</label>
-                    <input type="radio" id="not-completed" name="completionStatus" value="yes"/>
-                    <label for="completed">Yes</label>
+                    @foreach (var option in Chore.CompletionStatusOptions)
+                    {
+                        <input type="radio" asp-for="Chore.CompletionStatus" value=@option /> @option<br />
+                    }
                 </div>
             </div>
             <div class="form-group">
