@@ -11,12 +11,14 @@ public class Chore
   public string? ChoreName { get; set; }
 
   [Required]
-  [Display(Name = "Person Doing It")]
-  public string? ChoreDoer { get; set; }
-
-  [Required]
   [Display(Name = "Completion Status")]
   [BindProperty]
   public string? CompletionStatus { get; set; }
   public static string[] CompletionStatusOptions = { "Not Completed", "Completed" };
+
+
+  public int PeopleID { get; set; }
+  public People People { get; set; }
+  public ICollection<People> PeopleCollection { get; set; }
+
 }

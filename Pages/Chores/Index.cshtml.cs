@@ -18,7 +18,7 @@ namespace RazorChoreList.Pages_Chores
             _context = context;
         }
 
-        public IList<Chore> Chore { get;set; } = default!;
+        public IList<Chore> Chore { get; set; } = default!;
 
         public async Task OnGetAsync()
         {

@@ -5,10 +5,32 @@
     ViewData["Title"] = "Chore List";
 }
 
-<h1>Index</h1>
+<div>
+    <h2>Place that will display people who are available to do chores</h2>
+    @* <table class="table">
+        <tbody>
+            @foreach(var person in Chore.People)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => person.PeopleID)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => person.name)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table> *@
+</div>
 
 <p>
     <a asp-page="Create">Create New Chore</a>
+</p>
+<p>
+    @* Spot for Add/Remove People *@
 </p>
 <table class="table">
     <thead>
@@ -17,7 +39,8 @@
                 @Html.DisplayNameFor(model => model.Chore[0].ChoreName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Chore[0].ChoreDoer)
+                @* @Html.DisplayNameFor(model => model.Chore[0].People.name) *@
+                Assigned Person
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Chore[0].CompletionStatus)
@@ -32,7 +55,7 @@
                 @Html.DisplayFor(modelItem => item.ChoreName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ChoreDoer)
+                @Html.DisplayFor(modelItem => item.People.name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CompletionStatus)
