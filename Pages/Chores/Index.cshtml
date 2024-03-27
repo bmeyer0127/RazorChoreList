@@ -5,11 +5,35 @@
     ViewData["Title"] = "Chore List";
 }
 
-<h1>Index</h1>
+<div>
+    <h2>Place that will display people who are available to do chores</h2>
+    @* <table class="table">
+        <tbody>
+            @foreach(var item in Model.Pages_People)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PeopleID)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table> *@
+</div>
 
-<p>
-    <a asp-page="Create">Create New Chore</a>
-</p>
+<div>
+    <p>
+        <a asp-page="Create">Create New Chore</a>
+    </p>
+    <p>
+        <a asp-page="../People/Create">Add New Person</a>
+    </p>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -17,7 +41,8 @@
                 @Html.DisplayNameFor(model => model.Chore[0].ChoreName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Chore[0].ChoreDoer)
+                @* @Html.DisplayNameFor(model => model.Chore[0].People.name) *@
+                Assigned Person
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Chore[0].CompletionStatus)
@@ -32,7 +57,7 @@
                 @Html.DisplayFor(modelItem => item.ChoreName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ChoreDoer)
+                @Html.DisplayFor(modelItem => item.people.name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CompletionStatus)

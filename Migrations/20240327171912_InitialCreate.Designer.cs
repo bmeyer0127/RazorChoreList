@@ -10,7 +10,7 @@ using RazorChoreList.Data;
 namespace RazorChoreList.Migrations
 {
     [DbContext(typeof(RazorChoreListContext))]
-    [Migration("20240318021645_InitialCreate")]
+    [Migration("20240327171912_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,18 +25,47 @@ namespace RazorChoreList.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("ChoreDoer")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("ChoreName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CompletionStatus")
+                        .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("PeopleID")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
 
+                    b.HasIndex("PeopleID");
+
                     b.ToTable("Chore");
+                });
+
+            modelBuilder.Entity("People", b =>
+                {
+                    b.Property<int>("PeopleID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("PeopleID");
+
+                    b.ToTable("People");
+                });
+
+            modelBuilder.Entity("Chore", b =>
+                {
+                    b.HasOne("People", "people")
+                        .WithMany()
+                        .HasForeignKey("PeopleID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("people");
                 });
 #pragma warning restore 612, 618
         }

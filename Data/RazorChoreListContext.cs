@@ -8,11 +8,12 @@ namespace RazorChoreList.Data
 {
     public class RazorChoreListContext : DbContext
     {
-        public RazorChoreListContext (DbContextOptions<RazorChoreListContext> options)
+        public RazorChoreListContext(DbContextOptions<RazorChoreListContext> options)
             : base(options)
         {
         }
 
         public DbSet<Chore> Chore { get; set; } = default!;
+        public DbSet<People> People { get; set; } = default!;
     }
 }

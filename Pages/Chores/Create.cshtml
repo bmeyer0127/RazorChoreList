@@ -19,13 +19,12 @@
                 <span asp-validation-for="Chore.ChoreName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Chore.ChoreDoer" class="control-label"></label>
-                <input asp-for="Chore.ChoreDoer" class="form-control" />
-                <span asp-validation-for="Chore.ChoreDoer" class="text-danger"></span>
+                <label asp-for="Chore.people.name" class="control-label"></label>
             </div>
             <div class="form-group">
                 <label asp-for="Chore.CompletionStatus" class="control-label"></label>
                 <div>
+                    @* Remove foreach and manually add both options and have CompletinoStatusOptions[0] be checked *@
                     @foreach (var option in Chore.CompletionStatusOptions)
                     {
                         <input type="radio" asp-for="Chore.CompletionStatus" value=@option /> @option<br />
