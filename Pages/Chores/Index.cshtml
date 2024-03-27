@@ -9,16 +9,16 @@
     <h2>Place that will display people who are available to do chores</h2>
     @* <table class="table">
         <tbody>
-            @foreach(var person in Chore.People)
+            @foreach(var item in Model.Pages_People)
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => person.PeopleID)
+                        @Html.DisplayFor(modelItem => item.PeopleID)
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => person.name)
+                        @Html.DisplayFor(modelItem => item.name)
                     </td>
                 </tr>
             }
@@ -26,12 +26,14 @@
     </table> *@
 </div>
 
-<p>
-    <a asp-page="Create">Create New Chore</a>
-</p>
-<p>
-    @* Spot for Add/Remove People *@
-</p>
+<div>
+    <p>
+        <a asp-page="Create">Create New Chore</a>
+    </p>
+    <p>
+        <a asp-page="../People/Create">Add New Person</a>
+    </p>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -55,7 +57,7 @@
                 @Html.DisplayFor(modelItem => item.ChoreName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.People.name)
+                @Html.DisplayFor(modelItem => item.people.name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CompletionStatus)

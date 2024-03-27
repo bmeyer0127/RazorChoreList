@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 public class Chore
 {
+  [Key]
   public int ID { get; set; }
 
   [Required]
@@ -16,9 +17,8 @@ public class Chore
   public string? CompletionStatus { get; set; }
   public static string[] CompletionStatusOptions = { "Not Completed", "Completed" };
 
-
   public int PeopleID { get; set; }
-  public People People { get; set; }
-  public ICollection<People> PeopleCollection { get; set; }
-
+  [ForeignKey("PeopleID")]
+  public People people { get; set; }
 }
+
