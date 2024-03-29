@@ -14,7 +14,7 @@ namespace RazorChoreList.Migrations
                 name: "Chore",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                    ChoreID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ChoreName = table.Column<string>(type: "TEXT", nullable: false),
                     CompletionStatus = table.Column<string>(type: "TEXT", nullable: false),
@@ -22,7 +22,7 @@ namespace RazorChoreList.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Chore", x => x.ID);
+                    table.PrimaryKey("PK_Chore", x => x.ChoreID);
                 });
 
             migrationBuilder.CreateTable(
@@ -41,7 +41,7 @@ namespace RazorChoreList.Migrations
                         name: "FK_People_Chore_ChoreID",
                         column: x => x.ChoreID,
                         principalTable: "Chore",
-                        principalColumn: "ID");
+                        principalColumn: "ChoreID");
                 });
 
             migrationBuilder.CreateIndex(

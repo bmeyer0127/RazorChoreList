@@ -9,13 +9,8 @@
     <h2>Place that will display people who are available to do chores</h2>
     <table class="table">
         <tbody>
-            @foreach (var item in )
+            @foreach (var item in Model.People)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PeopleID)
-                    </td>
-                </tr>
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.name)
@@ -63,9 +58,9 @@
                 @Html.DisplayFor(modelItem => item.CompletionStatus)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.ChoreID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ChoreID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ChoreID">Delete</a>
             </td>
         </tr>
 }

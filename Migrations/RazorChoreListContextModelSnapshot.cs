@@ -19,7 +19,7 @@ namespace RazorChoreList.Migrations
 
             modelBuilder.Entity("Chore", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("ChoreID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -34,7 +34,7 @@ namespace RazorChoreList.Migrations
                     b.Property<int>("PeopleID")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ID");
+                    b.HasKey("ChoreID");
 
                     b.HasIndex("PeopleID");
 

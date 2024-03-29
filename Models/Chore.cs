@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 public class Chore
 {
   [Key]
-  public int ID { get; set; }
+  public int ChoreID { get; set; }
 
   [Required]
   [Display(Name = "Chore")]

@@ -27,7 +27,7 @@ namespace RazorChoreList.Pages_Chores
                 return NotFound();
             }
 
-            var chore = await _context.Chore.FirstOrDefaultAsync(m => m.ID == id);
+            var chore = await _context.Chore.FirstOrDefaultAsync(m => m.ChoreID == id);
             if (chore == null)
             {
                 return NotFound();
