@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 public class Chore
 {
   [Key]
-  public int ID { get; set; }
+  public int ChoreID { get; set; }
 
   [Required]
   [Display(Name = "Chore")]
@@ -20,5 +20,6 @@ public class Chore
   public int PeopleID { get; set; }
   [ForeignKey("PeopleID")]
   public People people { get; set; }
+  public ICollection<People> People { get; set; }
 }
 

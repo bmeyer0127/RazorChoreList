@@ -1,0 +1,36 @@
+@page
+@model RazorChoreList.Pages_People.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.People[0].name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.People) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PeopleID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PeopleID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PeopleID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorChoreList.Data;
 
-namespace RazorChoreList.Pages_Chores
+namespace RazorChoreList.Pages_People
 {
     public class IndexModel : PageModel
     {
@@ -18,12 +18,10 @@ namespace RazorChoreList.Pages_Chores
             _context = context;
         }
 
-        public IList<Chore> Chore { get; set; } = default!;
-        public IList<People> People { get; set; } = default!;
+        public IList<People> People { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Chore = await _context.Chore.ToListAsync();
             People = await _context.People.ToListAsync();
         }
     }
