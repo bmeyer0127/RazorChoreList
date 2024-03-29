@@ -20,5 +20,6 @@ public class Chore
   public int PeopleID { get; set; }
   [ForeignKey("PeopleID")]
   public People people { get; set; }
+  public ICollection<People> People { get; set; }
 }
 
