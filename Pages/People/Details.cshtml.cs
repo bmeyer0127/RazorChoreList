@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorChoreList.Data;
 
-namespace RazorChoreList.Pages_Chores
+namespace RazorChoreList.Pages_People
 {
     public class DetailsModel : PageModel
     {
@@ -18,7 +18,7 @@ namespace RazorChoreList.Pages_Chores
             _context = context;
         }
 
-        public Chore Chore { get; set; } = default!;
+        public People People { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,14 +27,14 @@ namespace RazorChoreList.Pages_Chores
                 return NotFound();
             }
 
-            var chore = await _context.Chore.FirstOrDefaultAsync(m => m.ChoreID == id);
-            if (chore == null)
+            var people = await _context.People.FirstOrDefaultAsync(m => m.PeopleID == id);
+            if (people == null)
             {
                 return NotFound();
             }
             else
             {
-                Chore = chore;
+                People = people;
             }
             return Page();
         }

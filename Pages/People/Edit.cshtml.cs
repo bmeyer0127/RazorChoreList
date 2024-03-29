@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RazorChoreList.Data;
 
-namespace RazorChoreList.Pages_Chores
+namespace RazorChoreList.Pages_People
 {
     public class EditModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace RazorChoreList.Pages_Chores
         }
 
         [BindProperty]
-        public Chore Chore { get; set; } = default!;
+        public People People { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,12 +29,12 @@ namespace RazorChoreList.Pages_Chores
                 return NotFound();
             }
 
-            var chore = await _context.Chore.FirstOrDefaultAsync(m => m.ChoreID == id);
-            if (chore == null)
+            var people =  await _context.People.FirstOrDefaultAsync(m => m.PeopleID == id);
+            if (people == null)
             {
                 return NotFound();
             }
-            Chore = chore;
+            People = people;
             return Page();
         }
 
@@ -47,7 +47,7 @@ namespace RazorChoreList.Pages_Chores
                 return Page();
             }
 
-            _context.Attach(Chore).State = EntityState.Modified;
+            _context.Attach(People).State = EntityState.Modified;
 
             try
             {
@@ -55,7 +55,7 @@ namespace RazorChoreList.Pages_Chores
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ChoreExists(Chore.ChoreID))
+                if (!PeopleExists(People.PeopleID))
                 {
                     return NotFound();
                 }
@@ -68,9 +68,9 @@ namespace RazorChoreList.Pages_Chores
             return RedirectToPage("./Index");
         }
 
-        private bool ChoreExists(int id)
+        private bool PeopleExists(int id)
         {
-            return _context.Chore.Any(e => e.ChoreID == id);
+            return _context.People.Any(e => e.PeopleID == id);
         }
     }
 }

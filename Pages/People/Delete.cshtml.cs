@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorChoreList.Data;
 
-namespace RazorChoreList.Pages_Chores
+namespace RazorChoreList.Pages_People
 {
     public class DeleteModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace RazorChoreList.Pages_Chores
         }
 
         [BindProperty]
-        public Chore Chore { get; set; } = default!;
+        public People People { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,15 +28,15 @@ namespace RazorChoreList.Pages_Chores
                 return NotFound();
             }
 
-            var chore = await _context.Chore.FirstOrDefaultAsync(m => m.ChoreID == id);
+            var people = await _context.People.FirstOrDefaultAsync(m => m.PeopleID == id);
 
-            if (chore == null)
+            if (people == null)
             {
                 return NotFound();
             }
             else
             {
-                Chore = chore;
+                People = people;
             }
             return Page();
         }
@@ -48,11 +48,11 @@ namespace RazorChoreList.Pages_Chores
                 return NotFound();
             }
 
-            var chore = await _context.Chore.FindAsync(id);
-            if (chore != null)
+            var people = await _context.People.FindAsync(id);
+            if (people != null)
             {
-                Chore = chore;
-                _context.Chore.Remove(Chore);
+                People = people;
+                _context.People.Remove(People);
                 await _context.SaveChangesAsync();
             }
 
