@@ -17,9 +17,9 @@ public class Chore
   public string? CompletionStatus { get; set; }
   public static string[] CompletionStatusOptions = { "Not Completed", "Completed" };
 
+  // [ForeignKey("PeopleID")]
   public int PeopleID { get; set; }
-  [ForeignKey("PeopleID")]
   public People people { get; set; }
-  public ICollection<People> People { get; set; }
+  public ICollection<People> People { get; }
 }
 
