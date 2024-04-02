@@ -20,7 +20,7 @@ namespace RazorChoreList.Pages_People
         }
 
         [BindProperty]
-        public People People { get; set; } = default!;
+        public Person People { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,7 +29,7 @@ namespace RazorChoreList.Pages_People
                 return NotFound();
             }
 
-            var people =  await _context.People.FirstOrDefaultAsync(m => m.PeopleID == id);
+            var people = await _context.People.FirstOrDefaultAsync(m => m.PersonId == id);
             if (people == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace RazorChoreList.Pages_People
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PeopleExists(People.PeopleID))
+                if (!PeopleExists(People.PersonId))
                 {
                     return NotFound();
                 }
@@ -70,7 +70,7 @@ namespace RazorChoreList.Pages_People
 
         private bool PeopleExists(int id)
         {
-            return _context.People.Any(e => e.PeopleID == id);
+            return _context.People.Any(e => e.PersonId == id);
         }
     }
 }

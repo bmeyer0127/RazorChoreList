@@ -19,7 +19,7 @@ namespace RazorChoreList.Pages_Chores
         }
 
         public IList<Chore> Chore { get; set; } = default!;
-        public IList<People> People { get; set; } = default!;
+        public IList<Person> People { get; set; } = default!;
 
         public async Task OnGetAsync()
         {

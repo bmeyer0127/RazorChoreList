@@ -24,7 +24,7 @@ namespace RazorChoreList.Pages_People
         }
 
         [BindProperty]
-        public People People { get; set; } = default!;
+        public Person People { get; set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()

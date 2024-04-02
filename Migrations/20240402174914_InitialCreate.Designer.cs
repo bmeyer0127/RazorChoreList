@@ -11,7 +11,7 @@ using RazorChoreList.Data;
 namespace RazorChoreList.Migrations
 {
     [DbContext(typeof(RazorChoreListContext))]
-    [Migration("20240329161807_InitialCreate")]
+    [Migration("20240402174914_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -22,7 +22,7 @@ namespace RazorChoreList.Migrations
 
             modelBuilder.Entity("Chore", b =>
                 {
-                    b.Property<int>("ChoreID")
+                    b.Property<int>("ChoreId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -34,52 +34,52 @@ namespace RazorChoreList.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("PeopleID")
+                    b.Property<int>("PersonId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ChoreID");
+                    b.HasKey("ChoreId");
 
-                    b.HasIndex("PeopleID");
+                    b.HasIndex("PersonId");
 
                     b.ToTable("Chore");
                 });
 
-            modelBuilder.Entity("People", b =>
+            modelBuilder.Entity("Person", b =>
                 {
-                    b.Property<int>("PeopleID")
+                    b.Property<int>("PersonId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ChoreID")
+                    b.Property<int?>("ChoreId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("name")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("PeopleID");
+                    b.HasKey("PersonId");
 
-                    b.HasIndex("ChoreID");
+                    b.HasIndex("ChoreId");
 
                     b.ToTable("People");
                 });
 
             modelBuilder.Entity("Chore", b =>
                 {
-                    b.HasOne("People", "people")
+                    b.HasOne("Person", "person")
                         .WithMany()
-                        .HasForeignKey("PeopleID")
+                        .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("people");
+                    b.Navigation("person");
                 });
 
-            modelBuilder.Entity("People", b =>
+            modelBuilder.Entity("Person", b =>
                 {
                     b.HasOne("Chore", null)
                         .WithMany("People")
-                        .HasForeignKey("ChoreID");
+                        .HasForeignKey("ChoreId");
                 });
 
             modelBuilder.Entity("Chore", b =>
