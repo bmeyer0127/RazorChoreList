@@ -28,7 +28,7 @@ namespace RazorChoreList.Pages_People
                 return NotFound();
             }
 
-            var people = await _context.People.FirstOrDefaultAsync(m => m.PersonId == id);
+            var people = await _context.Person.FirstOrDefaultAsync(m => m.PersonId == id);
 
             if (people == null)
             {
@@ -48,11 +48,11 @@ namespace RazorChoreList.Pages_People
                 return NotFound();
             }
 
-            var people = await _context.People.FindAsync(id);
+            var people = await _context.Person.FindAsync(id);
             if (people != null)
             {
                 People = people;
-                _context.People.Remove(people);
+                _context.Person.Remove(people);
                 await _context.SaveChangesAsync();
             }
 

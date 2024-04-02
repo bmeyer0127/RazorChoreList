@@ -24,7 +24,7 @@ namespace RazorChoreList.Pages_Chores
         public async Task OnGetAsync()
         {
             Chore = await _context.Chore.ToListAsync();
-            People = await _context.People.ToListAsync();
+            People = await _context.Person.ToListAsync();
         }
     }
 }

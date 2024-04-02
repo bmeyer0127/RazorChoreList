@@ -26,7 +26,7 @@ namespace RazorChoreList.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "People",
+                name: "Person",
                 columns: table => new
                 {
                     PersonId = table.Column<int>(type: "INTEGER", nullable: false)
@@ -36,9 +36,9 @@ namespace RazorChoreList.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_People", x => x.PersonId);
+                    table.PrimaryKey("PK_Person", x => x.PersonId);
                     table.ForeignKey(
-                        name: "FK_People_Chore_ChoreId",
+                        name: "FK_Person_Chore_ChoreId",
                         column: x => x.ChoreId,
                         principalTable: "Chore",
                         principalColumn: "ChoreId");
@@ -50,15 +50,15 @@ namespace RazorChoreList.Migrations
                 column: "PersonId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_People_ChoreId",
-                table: "People",
+                name: "IX_Person_ChoreId",
+                table: "Person",
                 column: "ChoreId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Chore_People_PersonId",
+                name: "FK_Chore_Person_PersonId",
                 table: "Chore",
                 column: "PersonId",
-                principalTable: "People",
+                principalTable: "Person",
                 principalColumn: "PersonId",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -67,11 +67,11 @@ namespace RazorChoreList.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Chore_People_PersonId",
+                name: "FK_Chore_Person_PersonId",
                 table: "Chore");
 
             migrationBuilder.DropTable(
-                name: "People");
+                name: "Person");
 
             migrationBuilder.DropTable(
                 name: "Chore");

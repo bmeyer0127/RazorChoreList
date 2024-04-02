@@ -19,12 +19,12 @@
                 <span asp-validation-for="Chore.ChoreName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Chore.person.Name" class="control-label"></label>
+                <label asp-for="Chore.PersonId" class="control-label"></label>
                 <div>
                     <select asp-for="Chore.PersonId">
-                        @foreach (var person in Model.People)
+                        @foreach (var item in Model.People)
                         {
-                            <option value="@person.PersonId">@person.Name</option>
+                            <option value="@item.PersonId">@item.Name</option>
                         }
                     </select>
                 </div>

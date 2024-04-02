@@ -22,12 +22,12 @@ namespace RazorChoreList.Pages_Chores
 
         public IActionResult OnGet()
         {
-            People = _context.People.ToList();
+            People = _context.Person.ToList();
             return Page();
         }
 
         [BindProperty]
-        public Chore Chore { get; set; } = new();
+        public CreateChore Chore { get; set; }
         public IList<Person> People { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -38,8 +38,20 @@ namespace RazorChoreList.Pages_Chores
                 return Page();
             }
 
-            _context.Chore.Add(Chore);
+            var newChore = new Chore
+            {
+                ChoreName = Chore.ChoreName,
+                CompletionStatus = Chore.CompletionStatus,
+                PersonId = Chore.PersonId
+            };
+
+            _context.Chore.Add(newChore);
+
+            Console.WriteLine(newChore.ChoreId);
+
             await _context.SaveChangesAsync();
+
+            Console.WriteLine(newChore.ChoreId);
 
             return RedirectToPage("./Index");
         }

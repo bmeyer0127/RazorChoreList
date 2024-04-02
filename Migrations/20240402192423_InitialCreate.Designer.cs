@@ -11,7 +11,7 @@ using RazorChoreList.Data;
 namespace RazorChoreList.Migrations
 {
     [DbContext(typeof(RazorChoreListContext))]
-    [Migration("20240402174914_InitialCreate")]
+    [Migration("20240402192423_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -61,7 +61,7 @@ namespace RazorChoreList.Migrations
 
                     b.HasIndex("ChoreId");
 
-                    b.ToTable("People");
+                    b.ToTable("Person");
                 });
 
             modelBuilder.Entity("Chore", b =>

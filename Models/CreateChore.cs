@@ -3,11 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
-public class Chore
+public class CreateChore
 {
-  [Key]
-  public int ChoreId { get; set; }
-
   [Required]
   [Display(Name = "Chore")]
   public string? ChoreName { get; set; }
@@ -16,14 +13,9 @@ public class Chore
   [Display(Name = "Completion Status")]
   [BindProperty]
   public string? CompletionStatus { get; set; }
+
   public static string[] CompletionStatusOptions = { "Not Completed", "Completed" };
 
-  // [ForeignKey("PersonId")]
   [Required]
   public int PersonId { get; set; }
-  public Person person { get; set; }
-
-  [ValidateNever]
-  public ICollection<Person> People { get; }
 }
-
