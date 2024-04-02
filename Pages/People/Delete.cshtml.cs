@@ -19,7 +19,7 @@ namespace RazorChoreList.Pages_People
         }
 
         [BindProperty]
-        public People People { get; set; } = default!;
+        public Person People { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,7 +28,7 @@ namespace RazorChoreList.Pages_People
                 return NotFound();
             }
 
-            var people = await _context.People.FirstOrDefaultAsync(m => m.PeopleID == id);
+            var people = await _context.People.FirstOrDefaultAsync(m => m.PersonId == id);
 
             if (people == null)
             {
@@ -52,7 +52,7 @@ namespace RazorChoreList.Pages_People
             if (people != null)
             {
                 People = people;
-                _context.People.Remove(People);
+                _context.People.Remove(people);
                 await _context.SaveChangesAsync();
             }
 

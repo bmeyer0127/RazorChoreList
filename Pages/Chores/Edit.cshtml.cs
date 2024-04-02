@@ -29,7 +29,7 @@ namespace RazorChoreList.Pages_Chores
                 return NotFound();
             }
 
-            var chore = await _context.Chore.FirstOrDefaultAsync(m => m.ChoreID == id);
+            var chore = await _context.Chore.FirstOrDefaultAsync(m => m.ChoreId == id);
             if (chore == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace RazorChoreList.Pages_Chores
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ChoreExists(Chore.ChoreID))
+                if (!ChoreExists(Chore.ChoreId))
                 {
                     return NotFound();
                 }
@@ -70,7 +70,7 @@ namespace RazorChoreList.Pages_Chores
 
         private bool ChoreExists(int id)
         {
-            return _context.Chore.Any(e => e.ChoreID == id);
+            return _context.Chore.Any(e => e.ChoreId == id);
         }
     }
 }

@@ -14,6 +14,6 @@ namespace RazorChoreList.Data
         }
 
         public DbSet<Chore> Chore { get; set; } = default!;
-        public DbSet<People> People { get; set; } = default!;
+        public DbSet<Person> People { get; set; } = default!;
     }
 }

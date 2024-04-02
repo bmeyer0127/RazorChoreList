@@ -18,7 +18,7 @@ namespace RazorChoreList.Pages_People
             _context = context;
         }
 
-        public IList<People> People { get;set; } = default!;
+        public IList<Person> People { get; set; } = default!;
 
         public async Task OnGetAsync()
         {

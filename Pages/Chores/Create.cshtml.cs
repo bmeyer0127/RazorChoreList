@@ -28,7 +28,7 @@ namespace RazorChoreList.Pages_Chores
 
         [BindProperty]
         public Chore Chore { get; set; } = new();
-        public IList<People> People { get; set; }
+        public IList<Person> People { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
