@@ -14,52 +14,52 @@ namespace RazorChoreList.Migrations
                 name: "Chore",
                 columns: table => new
                 {
-                    ChoreID = table.Column<int>(type: "INTEGER", nullable: false)
+                    ChoreId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ChoreName = table.Column<string>(type: "TEXT", nullable: false),
                     CompletionStatus = table.Column<string>(type: "TEXT", nullable: false),
-                    PeopleID = table.Column<int>(type: "INTEGER", nullable: false)
+                    PersonId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Chore", x => x.ChoreID);
+                    table.PrimaryKey("PK_Chore", x => x.ChoreId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "People",
                 columns: table => new
                 {
-                    PeopleID = table.Column<int>(type: "INTEGER", nullable: false)
+                    PersonId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    name = table.Column<string>(type: "TEXT", nullable: false),
-                    ChoreID = table.Column<int>(type: "INTEGER", nullable: true)
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    ChoreId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_People", x => x.PeopleID);
+                    table.PrimaryKey("PK_People", x => x.PersonId);
                     table.ForeignKey(
-                        name: "FK_People_Chore_ChoreID",
-                        column: x => x.ChoreID,
+                        name: "FK_People_Chore_ChoreId",
+                        column: x => x.ChoreId,
                         principalTable: "Chore",
-                        principalColumn: "ChoreID");
+                        principalColumn: "ChoreId");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Chore_PeopleID",
+                name: "IX_Chore_PersonId",
                 table: "Chore",
-                column: "PeopleID");
+                column: "PersonId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_People_ChoreID",
+                name: "IX_People_ChoreId",
                 table: "People",
-                column: "ChoreID");
+                column: "ChoreId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Chore_People_PeopleID",
+                name: "FK_Chore_People_PersonId",
                 table: "Chore",
-                column: "PeopleID",
+                column: "PersonId",
                 principalTable: "People",
-                principalColumn: "PeopleID",
+                principalColumn: "PersonId",
                 onDelete: ReferentialAction.Cascade);
         }
 
@@ -67,7 +67,7 @@ namespace RazorChoreList.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Chore_People_PeopleID",
+                name: "FK_Chore_People_PersonId",
                 table: "Chore");
 
             migrationBuilder.DropTable(

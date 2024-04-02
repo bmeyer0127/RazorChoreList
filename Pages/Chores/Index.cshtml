@@ -13,7 +13,7 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.name)
+                        @Html.DisplayFor(modelItem => item.Name)
                     </td>
                 </tr>
             }
@@ -36,7 +36,7 @@
                 @Html.DisplayNameFor(model => model.Chore[0].ChoreName)
             </th>
             <th>
-                @* @Html.DisplayNameFor(model => model.Chore[0].People.name) *@
+                @* @Html.DisplayNameFor(model => model.Chore[0].People.Name) *@
                 Assigned Person
             </th>
             <th>
@@ -52,15 +52,15 @@
                 @Html.DisplayFor(modelItem => item.ChoreName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.people.name)
+                @Html.DisplayFor(modelItem => item.person.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CompletionStatus)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ChoreID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ChoreID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ChoreID">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.ChoreId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ChoreId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ChoreId">Delete</a>
             </td>
         </tr>
 }

@@ -2,11 +2,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Mvc;
 
-public class People
+public class Person
 {
   [Key]
-  public int PeopleID { get; set; }
+  public int PersonId { get; set; }
 
   [Required]
-  public string? name { get; set; }
+  public string? Name { get; set; }
 }
