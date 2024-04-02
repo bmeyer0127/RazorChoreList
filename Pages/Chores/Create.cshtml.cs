@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using RazorChoreList.Data;
 
 namespace RazorChoreList.Pages_Chores
@@ -20,11 +22,13 @@ namespace RazorChoreList.Pages_Chores
 
         public IActionResult OnGet()
         {
+            People = _context.People.ToList();
             return Page();
         }
 
         [BindProperty]
-        public Chore Chore { get; set; } = default!;
+        public Chore Chore { get; set; } = new();
+        public IList<People> People { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()

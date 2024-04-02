@@ -18,15 +18,17 @@
                 <input asp-for="Chore.ChoreName" class="form-control" />
                 <span asp-validation-for="Chore.ChoreName" class="text-danger"></span>
             </div>
-            @* <div class="form-group">
+            <div class="form-group">
                 <label asp-for="Chore.people.name" class="control-label"></label>
-                <select name="ChoreDoer">
-                @foreach (var person in Chore.people)
-                {
-                    <option value="@person.PeopleID">@person.name</option>
-                }
-                </select>
-            </div> *@
+                <div>
+                    <select asp-for="Chore.PeopleID">
+                        @foreach (var person in Model.People)
+                        {
+                            <option value="@person.PeopleID">@person.name</option>
+                        }
+                    </select>
+                </div>
+            </div>
             <div class="form-group">
                 <label asp-for="Chore.CompletionStatus" class="control-label"></label>
                 <div>
