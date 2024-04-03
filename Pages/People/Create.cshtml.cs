@@ -24,8 +24,8 @@ namespace RazorChoreList.Pages_People
         }
 
         [BindProperty]
-        public Person People { get; set; } = default!;
-        public Chore Chore { get; set; } = default!;
+        public CreatePerson Person { get; set; }
+        public Chore Chore { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +35,12 @@ namespace RazorChoreList.Pages_People
                 return Page();
             }
 
-            _context.Person.Add(People);
+            var newPerson = new Person
+            {
+                Name = Person.Name
+            };
+
+            _context.Person.Add(newPerson);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("../Chores/Index");

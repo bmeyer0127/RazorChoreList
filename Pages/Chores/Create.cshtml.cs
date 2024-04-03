@@ -47,11 +47,7 @@ namespace RazorChoreList.Pages_Chores
 
             _context.Chore.Add(newChore);
 
-            Console.WriteLine(newChore.ChoreId);
-
             await _context.SaveChangesAsync();
-
-            Console.WriteLine(newChore.ChoreId);
 
             return RedirectToPage("./Index");
         }

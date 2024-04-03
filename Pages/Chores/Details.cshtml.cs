@@ -19,6 +19,7 @@ namespace RazorChoreList.Pages_Chores
         }
 
         public Chore Chore { get; set; } = default!;
+        public Person Person { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -36,6 +37,13 @@ namespace RazorChoreList.Pages_Chores
             {
                 Chore = chore;
             }
+
+            // Trying to use Linq to get Person.Name using Chore.PersonId
+            // var name = 
+            //     from Person in Person 
+            //     where Person.PersonId == Chore.PersonId 
+            //     select Person.Name;
+
             return Page();
         }
     }
