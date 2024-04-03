@@ -22,7 +22,7 @@ public class Chore
   [Required]
   public int PersonId { get; set; }
   [BindProperty]
-  public Person Person { get; set; } = new Person();
+  public Person? Person { get; set; }
 
   [ValidateNever]
   public ICollection<Person>? People { get; set; }

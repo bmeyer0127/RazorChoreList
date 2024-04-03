@@ -22,7 +22,7 @@
                 <label asp-for="Chore.PersonId" class="control-label"></label>
                 <div>
                     <select asp-for="Chore.PersonId">
-                        @foreach (var item in Model.People)
+                        @foreach (var item in Model.Person)
                         {
                             <option value="@item.PersonId">@item.Name</option>
                         }
