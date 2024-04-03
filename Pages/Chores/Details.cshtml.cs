@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol.Plugins;
 using RazorChoreList.Data;
 
 namespace RazorChoreList.Pages_Chores
@@ -18,6 +19,7 @@ namespace RazorChoreList.Pages_Chores
             _context = context;
         }
 
+        [BindProperty]
         public Chore Chore { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -27,7 +29,8 @@ namespace RazorChoreList.Pages_Chores
                 return NotFound();
             }
 
-            var chore = await _context.Chore.FirstOrDefaultAsync(m => m.ChoreId == id);
+            var chore = await _context.Chore.
+                Include(p => p.Person).FirstOrDefaultAsync(m => m.ChoreId == id);
             if (chore == null)
             {
                 return NotFound();

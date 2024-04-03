@@ -22,7 +22,7 @@ namespace RazorChoreList.Pages_People
 
         public async Task OnGetAsync()
         {
-            People = await _context.People.ToListAsync();
+            People = await _context.Person.ToListAsync();
         }
     }
 }

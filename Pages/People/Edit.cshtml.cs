@@ -29,7 +29,7 @@ namespace RazorChoreList.Pages_People
                 return NotFound();
             }
 
-            var people = await _context.People.FirstOrDefaultAsync(m => m.PersonId == id);
+            var people = await _context.Person.FirstOrDefaultAsync(m => m.PersonId == id);
             if (people == null)
             {
                 return NotFound();
@@ -70,7 +70,7 @@ namespace RazorChoreList.Pages_People
 
         private bool PeopleExists(int id)
         {
-            return _context.People.Any(e => e.PersonId == id);
+            return _context.Person.Any(e => e.PersonId == id);
         }
     }
 }

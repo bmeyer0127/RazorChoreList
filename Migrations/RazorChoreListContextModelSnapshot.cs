@@ -58,7 +58,7 @@ namespace RazorChoreList.Migrations
 
                     b.HasIndex("ChoreId");
 
-                    b.ToTable("People");
+                    b.ToTable("Person");
                 });
 
             modelBuilder.Entity("Chore", b =>

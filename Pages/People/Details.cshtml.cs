@@ -27,7 +27,7 @@ namespace RazorChoreList.Pages_People
                 return NotFound();
             }
 
-            var people = await _context.People.FirstOrDefaultAsync(m => m.PersonId == id);
+            var people = await _context.Person.FirstOrDefaultAsync(m => m.PersonId == id);
             if (people == null)
             {
                 return NotFound();
