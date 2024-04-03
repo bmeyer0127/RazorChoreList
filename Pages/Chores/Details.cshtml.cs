@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol.Plugins;
 using RazorChoreList.Data;
 
 namespace RazorChoreList.Pages_Chores
@@ -19,7 +20,8 @@ namespace RazorChoreList.Pages_Chores
         }
 
         public Chore Chore { get; set; } = default!;
-        public Person Person { get; set; } = default!;
+        public IList<Chore> ChoreList { get; set; } = default!;
+        public IList<Person> PersonList { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -37,13 +39,6 @@ namespace RazorChoreList.Pages_Chores
             {
                 Chore = chore;
             }
-
-            // Trying to use Linq to get Person.Name using Chore.PersonId
-            // var name = 
-            //     from Person in Person 
-            //     where Person.PersonId == Chore.PersonId 
-            //     select Person.Name;
-
             return Page();
         }
     }

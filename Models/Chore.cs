@@ -21,7 +21,7 @@ public class Chore
   // [ForeignKey("PersonId")]
   [Required]
   public int PersonId { get; set; }
-  public Person person { get; set; }
+  public Person person { get; set; } = new();
 
   [ValidateNever]
   public ICollection<Person> People { get; }
