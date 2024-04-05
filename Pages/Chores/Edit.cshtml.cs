@@ -34,9 +34,12 @@ namespace RazorChoreList.Pages_Chores
             {
                 return NotFound();
             }
+            Person = _context.Person.ToList();
             Chore = chore;
             return Page();
         }
+
+        public IList<Person> Person { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
@@ -47,7 +50,17 @@ namespace RazorChoreList.Pages_Chores
                 return Page();
             }
 
-            _context.Attach(Chore).State = EntityState.Modified;
+            // _context.Attach(Chore).State = EntityState.Modified;
+            var editedChore = new Chore
+            {
+                ChoreId = Chore.ChoreId,
+                ChoreName = Chore.ChoreName,
+                CompletionStatus = Chore.CompletionStatus,
+                PersonId = Chore.PersonId
+            };
+
+            _context.Attach(editedChore).State = EntityState.Modified;
+
 
             try
             {

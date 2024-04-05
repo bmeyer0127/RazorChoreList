@@ -2,20 +2,18 @@
 @model RazorChoreList.Pages_Chores.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "New Chore";
 }
 
-<h1>Create</h1>
+<h1>New Chore!</h1>
 
-<h4>Chore</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Chore.ChoreName" class="control-label"></label>
-                <input asp-for="Chore.ChoreName" class="form-control" />
+                <input asp-for="Chore.ChoreName" class="form-control" autocomplete="off"/>
                 <span asp-validation-for="Chore.ChoreName" class="text-danger"></span>
             </div>
             <div class="form-group">
