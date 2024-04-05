@@ -18,8 +18,6 @@ namespace RazorChoreList.Pages_Chores
             _context = context;
         }
 
-        [BindProperty]
-        public Chore Thing { get; set; }
         public IList<Chore> Chore { get; set; } = default!;
         public IList<Person> People { get; set; } = default!;
         public bool IsCompleted;
@@ -28,19 +26,6 @@ namespace RazorChoreList.Pages_Chores
         {
             Chore = await _context.Chore.ToListAsync();
             People = await _context.Person.ToListAsync();
-        }
-
-        public void ToggleCompleted()
-        {
-            if (Thing.CompletionStatus == "Not Completed")
-            {
-                Thing.CompletionStatus = "Completed";
-            }
-            else
-            {
-                Thing.CompletionStatus = "Not Completed";
-            }
-
         }
     }
 }
