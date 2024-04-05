@@ -56,7 +56,7 @@ namespace RazorChoreList.Pages_People
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("../Chores/Index");
         }
     }
 }

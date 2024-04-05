@@ -30,15 +30,20 @@ namespace RazorChoreList.Pages_People
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
             var newPerson = new Person
             {
                 Name = Person.Name
             };
+
+            if (_context.Person.Any(i => i.Name == newPerson.Name))
+            {
+                ModelState.AddModelError("SamePersonError", $"{newPerson.Name} is already a person here");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
             _context.Person.Add(newPerson);
             await _context.SaveChangesAsync();

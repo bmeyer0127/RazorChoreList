@@ -22,13 +22,13 @@ namespace RazorChoreList.Pages_Chores
 
         public IActionResult OnGet()
         {
-            People = _context.Person.ToList();
+            Person = _context.Person.ToList();
             return Page();
         }
 
         [BindProperty]
         public CreateChore Chore { get; set; }
-        public IList<Person> People { get; set; }
+        public IList<Person> Person { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()

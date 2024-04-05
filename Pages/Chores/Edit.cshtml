@@ -20,14 +20,25 @@
                 <span asp-validation-for="Chore.ChoreName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Chore.Person.Name" class="control-label"></label>
+            <label asp-for="Chore.PersonId" class="control-label"></label>
+                @* <label asp-for="Chore.Person.Name" class="control-label"></label>
                 <input asp-for="Chore.Person.Name" class="form-control" />
-                <span asp-validation-for="Chore.Person.Name" class="text-danger"></span>
+                <span asp-validation-for="Chore.Person.Name" class="text-danger"></span> *@
+                <div>
+                    <select asp-for="Chore.PersonId">
+                            @foreach (var item in Model.Person)
+                            {
+                                <option value="@item.PersonId">@item.Name</option>
+                            }
+                    </select>
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="Chore.CompletionStatus" class="control-label"></label>
-                <input asp-for="Chore.CompletionStatus" class="form-control" />
-                <span asp-validation-for="Chore.CompletionStatus" class="text-danger"></span>
+                <div>
+                    <input type="radio" asp-for="Chore.CompletionStatus" value=@Chore.CompletionStatusOptions[0] checked/> @Chore.CompletionStatusOptions[0]<br />
+                    <input type="radio" asp-for="Chore.CompletionStatus" value=@Chore.CompletionStatusOptions[1] /> @Chore.CompletionStatusOptions[1]<br />
+                </div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

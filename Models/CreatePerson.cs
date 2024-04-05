@@ -5,5 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 public class CreatePerson
 {
   [Required]
+
   public string? Name { get; set; }
 }

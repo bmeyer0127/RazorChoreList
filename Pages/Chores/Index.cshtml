@@ -15,6 +15,9 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
+                    <td>
+                        <a asp-page="../People/Delete" asp-route-id="@item.PersonId">Delete</a>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -36,7 +39,6 @@
                 @Html.DisplayNameFor(model => model.Chore[0].ChoreName)
             </th>
             <th>
-                @* @Html.DisplayNameFor(model => model.Chore[0].People.Name) *@
                 Assigned Person
             </th>
             <th>
@@ -56,6 +58,7 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CompletionStatus)
+                <button>(Not) Completed?</button>
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ChoreId">Edit</a> |
