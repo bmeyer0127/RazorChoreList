@@ -1,0 +1,19 @@
+﻿<Modal @ref="modal" />
+
+@code {
+  private Modal modal = default!;
+
+  private async Task ShowChoreDetails(int ChoreId)
+  {
+    var parameters = new Dictionary<string, object>();
+    parameters.Add("ChoreId", ChoreId);
+    await modal.ShowAsync<ChoreDetails>(title: "Chore Details", parameters: parameters);
+  }
+
+  private async Task ShowGeneric()
+  {
+    var parameters = new Dictionary<string, object>();
+    parameters.Add("Something", "Something else");
+    await modal.ShowAsync<Details>(title: "Generic Modal", parameters: parameters);
+  }
+}
