@@ -16,7 +16,7 @@ public class Chore
   [Display(Name = "Completion Status")]
   [BindProperty]
   public string? CompletionStatus { get; set; }
-  public static string[] CompletionStatusOptions = { "Not Completed", "Completed" };
+  public static string[]? CompletionStatusOptions = { "Not Completed", "Completed" };
 
   // [ForeignKey("PersonId")]
   [Required]

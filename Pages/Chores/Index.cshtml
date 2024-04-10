@@ -64,6 +64,9 @@
                 <a asp-page="./Details" asp-route-id="@item.ChoreId">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ChoreId">Delete</a>
             </td>
+            <td>
+                <button Color="ButtonColor.Primary" onclick="ShowChoreDetails">Show Chore Details</button>
+            </td>
         </tr>
 }
     </tbody>
