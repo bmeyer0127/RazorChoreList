@@ -14,7 +14,7 @@ public class CreateChore
   [BindProperty]
   public string? CompletionStatus { get; set; }
 
-  public static string[] CompletionStatusOptions = { "Not Completed", "Completed" };
+  public static string[]? CompletionStatusOptions = { "Not Completed", "Completed" };
 
   [Required]
   public int PersonId { get; set; }

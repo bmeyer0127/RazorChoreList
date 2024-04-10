@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 public class Person
 {
   [Key]
-  public int PersonId { get; set; }
+  public int? PersonId { get; set; }
 
   [Required]
   public string? Name { get; set; }
